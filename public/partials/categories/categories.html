@@ -1,0 +1,27 @@
+<div class="col-md-6" ng-init="getAll()">
+	<h2>Categories</h2>
+</div>
+<div class="col-md-6">
+	<button class="btn btn-success pull-right" ui-sref="new_category">
+		New Category
+	</button>
+</div>
+<div class="clearfix"></div><hr>
+<div style="overflow-x: auto">
+	<table class="table table-hover table-stripped">
+		<thead>
+			<tr>
+				<th>Category Name</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="(k, v) in categories track by $index">
+				<td>{{v.name}}</td>
+				<td><button class="btn btn-default" ui-sref="edit_category({cat_id: v.id})"><i class="fa fa-pencil"></i></button></td>
+				<td><button class="btn btn-default" ui-sref="delete_category({cat_id: v.id})"><i class="fa fa-trash"></i></button></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

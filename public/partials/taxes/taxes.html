@@ -1,0 +1,29 @@
+<div class="col-md-6" ng-init="getAll()">
+	<h2>Taxes</h2>
+</div>
+<div class="col-md-6">
+	<button class="btn btn-success pull-right" ui-sref="new_tax">
+		New Tax
+	</button>
+</div>
+<div class="clearfix"></div><hr>
+<div style="overflow-x: auto">
+	<table class="table table-hover table-stripped">
+		<thead>
+			<tr>
+				<th>Country</th>
+				<th>Tax percentage</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="(k, v) in taxes track by $index">
+				<td>{{v.country_name}}</td>
+				<td>{{v.percent | number:2}}%</td>
+				<td><button class="btn btn-default" ui-sref="edit_tax({t_id: v.id})"><i class="fa fa-pencil"></i></button></td>
+				<td><button class="btn btn-default" ui-sref="delete_tax({t_id: v.id})"><i class="fa fa-trash"></i></button></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

@@ -1,0 +1,11 @@
+<div  class="container" ng-init="singleCollection()">
+	<h2>{{collection.name}}</h2>
+	<div class="col-md-3 text-center" ng-repeat="p in collection.products">
+		<span class="label label-success" style="position: absolute; top:10px; left: 25px;" ng-if="p.discount">Sale</span>
+		<div class="back-img img-thumbnail" style="background-image: url({{p.image}})"></div>
+		<a href="javascript:void(0)" ui-sref="single_product({p_id:p.id, p_slug:p.slug})"><h4>{{p.name}}</h4></a>
+		<b  ng-if="p.discount" style="text-decoration: line-through">{{p.compare_price|currency}}</b>
+		<b>{{p.price|currency}}</b>
+	</div>
+</div>
+

@@ -1,0 +1,42 @@
+<div class="col-md-6">
+	<h2>New Customer</h2>
+</div>
+<div class="col-md-6">
+	
+</div>
+<div class="clearfix"></div><hr>
+<form name="customer" ng-init="obj = {}">
+	<div class="form-group col-md-6">
+		<label>Customer Name</label>
+		<input type="text" name="customer_name" placeholder="Full Name" class="form-control" ng-model="obj.name" required>
+	</div>
+	<div class="form-group col-md-6">
+		<label>Email</label>
+		<input type="email" name="customer_email" placeholder="someone@example.com" class="form-control" ng-model="obj.email" required>
+	</div>
+	<div class="form-group col-md-6">
+		<label>Phone no.</label>
+		<input type="text" name="customer_phone" placeholder="Phone no" class="form-control" ng-model="obj.phone" required>
+	</div>
+	<div class="clearfix"></div>
+	<div class="form-group col-md-6">
+		<label>Password</label>
+		<input type="password" name="customer_password" placeholder="Password" class="form-control" ng-model="obj.password" required>
+	</div>
+	<div class="form-group col-md-6">
+		<label>Re-type Password</label> <small style="color: red !important;" ng-show="obj.password != obj.repass">Password does not match</small>
+		<input type="password" name="customer_phone" placeholder="Retype password" class="form-control" ng-model="obj.repass" required>
+	</div>
+	<div class="form-group col-md-12">
+		<label>Address</label>
+		<textarea class="form-control" required ng-model='obj.address' rows="5" placeholder="Full Address"></textarea>
+	</div>
+
+	<div class="clearfix"></div><hr>
+	<div class="col-md-12">
+		<div class="pull-right">
+			<button type="button" class="btn btn-danger" ui-sref="customers">Cancel</button>
+			<button type="submit" class="btn btn-success" ng-disabled="customer.$invalid || obj.password != obj.repass" ng-click="addCustomer(obj)">Confirm</button>
+		</div>
+	</div>
+</form>

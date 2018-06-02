@@ -1,0 +1,58 @@
+<div class="col-md-6" ng-init="newCouponForm()">
+	<h2>New Coupon</h2>
+</div>
+<div class="col-md-6">
+	
+</div>
+<div class="clearfix"></div><hr>
+<form name="coupon">
+	<div class="form-group col-md-6">
+		<label>Coupon code</label>
+		<input type="text" name="code" placeholder="Coupon Code" class="form-control" ng-model="obj.code" required>
+	</div>
+	<div class="form-group col-md-2">
+		<label>&nbsp;</label>
+		<button type="button" class="btn btn-default form-control" ng-click="generateCoupon()">Generate</button>
+	</div>
+	<div class="clearfix"></div>
+	<div class="form-group col-md-6">
+		<label>Type</label>
+		<select class="form-control" ng-model="obj.type" required name="type">
+			<option value='flat'>Flat</option>
+			<option value='percent'>Percent</option>
+		</select>
+	</div>
+	<div class="form-group col-md-6">
+		<label><span ng-if="obj.type=='flat'">$</span><span ng-if="obj.type=='percent'">%</span> Amount off</label>
+		<input type="number" name="value" placeholder="Coupon Value" class="form-control" ng-model="obj.value" required autocomplete="off">
+	</div>
+	<div class="form-group col-md-6">
+		<label>Maximum limit</label>
+		<input type="number" name="value" placeholder="∞" class="form-control" ng-model="obj.limit">
+	</div>
+	<div class="clearfix"></div>
+	<div class="form-group col-md-6">
+		<label>Begins</label>
+		<input type="text" name="value" placeholder="Anytime" id="begin" class="form-control" ng-model="obj.begin">
+	</div>
+	<div class="form-group col-md-6">
+		<label>Expires</label>
+		<input type="text" name="value" placeholder="Never" id="expire" class="form-control" ng-model="obj.expire">
+	</div>
+	<div class="clearfix"></div><hr>
+	<div class="form-group col-md-6">
+		<h4>Publish coupon?</h4>
+		<p>This is when you want to make your coupon unavailable on your site</p>
+	</div>
+	<div class="form-group col-md-6">
+		<label>Publish this coupon</label><br>
+	    <switch ng-model="obj.publish" class="green"></switch>
+	</div>
+	<div class="clearfix"></div><hr>
+	<div class="col-md-12">
+		<div class="pull-right">
+			<button type="button" class="btn btn-danger" ui-sref="coupons">Cancel</button>
+			<button type="submit" class="btn btn-success" ng-disabled="coupon.$invalid" ng-click="addCoupon(obj)">Confirm</button>
+		</div>
+	</div>
+</form>

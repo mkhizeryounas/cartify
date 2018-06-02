@@ -1,0 +1,43 @@
+<div class="col-md-6" ng-init="getAll()">
+	<h2>Products</h2>
+</div>
+<div class="col-md-6">
+	<button class="btn btn-success pull-right" ui-sref="new_product">
+		New Product
+	</button>
+</div>
+<div class="clearfix"></div><hr>
+<div style="overflow-x: auto">
+	<table class="table table-hover table-stripped">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Product name</th>
+				<th>SKU</th>
+				<th>Price</th>
+				<th>Quantity</th>
+				<th>Discounted</th>
+				<th>Taxable</th>
+				<th>Published</th>
+				<th>Shipping</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="(k, v) in products track by $index">
+				<td><div class=" back-img img-thumbnail" style="background-image: url({{v.image}}); height: 60px; width:60px; padding:3px;"></div></td>
+				<td>{{v.name}}</td>
+				<td>{{v.sku}}</td>
+				<td>{{v.price | currency}}</td>
+				<td><div ng-hide="v.track_inventory">∞</div><div ng-show="v.track_inventory">{{v.quantity}} pcs</div></td>
+				<td><span class="label label-default" ng-class="{'label-success': v.discount == true}" style="text-transform: uppercase;">{{v.discount}}</span></td>
+				<td><span class="label label-default" ng-class="{'label-success': v.taxable == true}" style="text-transform: uppercase;">{{v.taxable}}</span></td>
+				<td><span class="label label-default" ng-class="{'label-success': v.publish == true}" style="text-transform: uppercase;">{{v.publish}}</span></td>
+				<td><span class="label label-default" ng-class="{'label-success': v.shipping == true}" style="text-transform: uppercase;">{{v.shipping}}</span></td>
+				<td><button class="btn btn-default" ui-sref="edit_product({p_id: v.id})"><i class="fa fa-pencil"></i></button></td>
+				<td><button class="btn btn-default" ui-sref="delete_product({p_id: v.id})"><i class="fa fa-trash"></i></button></td>
+			</tr>
+		</tbody>
+	</table>
+</div>

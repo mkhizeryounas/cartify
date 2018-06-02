@@ -1,0 +1,20 @@
+<div class="col-md-6" ng-init="getTax()">
+	<h2>Delete Tax</h2>
+</div>
+<div class="col-md-6">
+	
+</div>
+<div class="clearfix"></div><hr>
+<form name="category" ng-init="obj = {}">
+	<div class="form-group col-md-6">
+		Are you sure you want to delete tax for '{{obj.country_name}}'?
+	</div>
+
+	<div class="clearfix"></div><hr>
+	<div class="col-md-12">
+		<div class="pull-right">
+			<button type="button" class="btn btn-danger" ui-sref="categories">Cancel</button>
+			<button type="submit" class="btn btn-success" ng-disabled="" ng-click="deleteTax(obj)">Confirm</button>
+		</div>
+	</div>
+</form>

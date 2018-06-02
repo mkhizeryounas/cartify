@@ -1,0 +1,128 @@
+<div class="col-md-6" ng-init="getProduct()">
+	<h2>Edit Product</h2>
+</div>
+<div class="col-md-6">
+	
+</div>
+<div class="clearfix"></div><hr>
+<form name="product">
+	<div class="form-group col-md-6">
+		<label>Product Name*</label>
+		<input type="text" name="name" placeholder="Product name" class="form-control" ng-model="obj.name" required>
+	</div>
+	<div class="form-group col-md-6">
+		<label>SKU*</label>
+		<input type="text" name="name" placeholder="Product SKU" class="form-control" ng-model="obj.sku" required>
+	</div>
+	<div class="col-md-6 form-group">
+		<label>Price*</label>
+		<input type="number" name="price" ng-model="obj.price" required class="form-control" placeholder="e.g. 10">
+	</div>
+	<div class="col-md-6 form-group">
+		<label>Discounted price <small>(Optional)</small></label>
+		<input type="number" name="cprice" ng-model="obj.compare_price" class="form-control" placeholder="e.g. 10">
+	</div>
+	<div class="form-group col-md-6">
+		<label>Category*</label>
+		<select class="form-control" ng-model="obj.category_id" required="">
+			<option ng-repeat="c in categories" ng-value="c.id">{{c.name}}</option>
+		</select>
+	</div>
+	<div class="form-group col-md-6">
+		<label><input type="checkbox" ng-model="obj.track_inventory"> Track quantity?</label>
+		<div class="input-group" ng-if="obj.track_inventory">
+	    	<span class="input-group-addon ng-binding">Inventory</span>
+			<input type="number" name="qty" required ng-model="obj.quantity" class="form-control" placeholder="e.g. 10" required>
+	  	</div>
+	</div>
+	<div class="clearfix"></div><hr>
+	<div class="col-md-12 form-group">
+		<label>Description</label>
+		<trix-editor angular-trix ng-model="obj.description" class="trix-content"></trix-editor>
+	</div>
+	<div class="clearfix"></div><hr>
+	
+	<div class="form-group col-md-12">
+		<label><br><input type="checkbox" ng-model="obj.shipping"> This product requires shipping</label>
+	</div>
+	<div ng-if="obj.shipping">
+		<div class="col-md-3 form-group">
+			<label>Weight*</label>
+			<div class="input-group">
+				<input type="number" name="weight" required ng-model="obj.weight" class="form-control" placeholder="e.g. 10">
+		    	<span class="input-group-addon ng-binding">Grams</span>
+		  	</div>
+		</div>
+		<div class="col-md-3 form-group">
+			<label>Depth*</label>
+			<div class="input-group">
+				<input type="number" name="depth" required ng-model="obj.depth" class="form-control" placeholder="e.g. 10">
+		    	<span class="input-group-addon ng-binding">cm</span>
+		  	</div>
+		</div>
+		<div class="col-md-3 form-group">
+			<label>Width*</label>
+			<div class="input-group">
+				<input type="number" name="width" required ng-model="obj.width" class="form-control" placeholder="e.g. 10">
+		    	<span class="input-group-addon ng-binding">cm</span>
+		  	</div>
+		</div>
+		<div class="col-md-3 form-group">
+			<label>Height*</label>
+			<div class="input-group">
+				<input type="number" name="height" required ng-model="obj.height" class="form-control" placeholder="e.g. 10">
+		    	<span class="input-group-addon ng-binding">cm</span>
+		  	</div>
+		</div>
+	</div>
+	<div class="clearfix"></div><hr>
+
+	<div class="col-md-12 form-group">
+		<label>Products images</label>
+		<input type="file" class="form-control btn btn-default" id="image" name="image" class="btn btn-primory" onchange="angular.element(this).scope().uploadedFile(this)">
+		<div id="prog-div" style="display: none; margin-top: 10px;" class="form-group">
+			<progress id="prog" class="" value="0" value="0" max="100" class="navbar-right" style="width: 100%;"></progress>
+		</div>
+		<div class="clearfix"></div>
+		<div class="col-md-12">
+			<div class="col-md-2 img-thumbnail" style="margin-top: 10px;margin-right: 10px;" ng-repeat="(k, v) in obj.images track by $index">
+				<div  class="back-img" style="background-image: url({{base_url+'files/'+v}}); height: 150px;"></div>
+				<button type="button" class="btn btn-danger btn-sm" style="width:100%" ng-click="deleteImg(k)">Delete</button>
+			</div>
+		</div>
+	</div>
+	<div class="clearfix"></div><hr>
+
+	<div class="form-group col-md-12">
+		<label>Meta description</label>
+		<input type="text" name="name" placeholder="Product meta description" class="form-control" ng-model="obj.meta_description">
+	</div>
+	<div class="clearfix"></div><hr>
+
+	<div class="form-group col-md-6">
+		<h4>Taxable</h4>
+		<p>Most products should be taxed. You can set tax rates any time in Tax Settings</p>
+	</div>
+	<div class="form-group col-md-6">
+		<label>This product is taxable</label><br>
+	    <switch ng-model="obj.taxable" class="green"></switch>
+	</div>
+	<div class="clearfix"></div><hr>
+	<div class="form-group col-md-6">
+		<h4>Publish products?</h4>
+		<p>This is when you want to make your products unavailable on your site</p>
+	</div>
+	<div class="form-group col-md-6">
+		<label>Publish this product</label><br>
+	    <switch ng-model="obj.publish" class="green"></switch>
+	</div>
+
+
+	<div class="clearfix"></div><hr>
+	<div class="col-md-12">
+		<div class="pull-right">
+			<button type="button" class="btn btn-danger" ui-sref="products">Cancel</button>
+			<button type="submit" class="btn btn-success" ng-disabled="product.$invalid" ng-click="editProduct(obj)">Confirm</button>
+		</div>
+	</div>
+</form>

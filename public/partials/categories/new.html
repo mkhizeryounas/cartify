@@ -1,0 +1,21 @@
+<div class="col-md-6">
+	<h2>New Category</h2>
+</div>
+<div class="col-md-6">
+	
+</div>
+<div class="clearfix"></div><hr>
+<form name="category" ng-init="obj = {}">
+	<div class="form-group col-md-6">
+		<label>Category Name</label>
+		<input type="text" name="category_name" placeholder="Category name" class="form-control" ng-model="obj.category_name" required>
+	</div>
+
+	<div class="clearfix"></div><hr>
+	<div class="col-md-12">
+		<div class="pull-right">
+			<button type="button" class="btn btn-danger" ui-sref="categories">Cancel</button>
+			<button type="submit" class="btn btn-success" ng-disabled="category.$invalid" ng-click="addCategory(obj)">Confirm</button>
+		</div>
+	</div>
+</form>

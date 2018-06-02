@@ -1,0 +1,34 @@
+<div class="col-md-6" ng-init="getInt()">
+	<h2>Edit International Shipping</h2>
+</div>
+<div class="col-md-6">
+	
+</div>
+<div class="clearfix"></div><hr>
+<form name="category" ng-init="obj = {}">
+	<div class="form-group col-md-6">
+		<label>First item</label>
+		<input type="text" name="first" placeholder="First item" class="form-control" ng-model="obj.shipping_first" required>
+	</div>
+	<div class="form-group col-md-6">
+		<label>Each additional item</label>
+		<input type="text" name="each" placeholder="Each additional item" class="form-control" ng-model="obj.shipping_each" required>
+	</div>
+	<div class="clearfix"></div><hr>
+	<div class="form-group col-md-6">
+		<h4>Globalization</h4>
+		<p>This is for when you want to receive orders internationally</p>
+	</div>
+	<div class="form-group col-md-6">
+		<label>Internatioal shipping</label><br>
+	    <switch ng-model="obj.status" class="green"></switch>
+	</div>
+
+	<div class="clearfix"></div><hr>
+	<div class="col-md-12">
+		<div class="pull-right">
+			<button type="button" class="btn btn-danger" ui-sref="shippings">Cancel</button>
+			<button type="submit" class="btn btn-success" ng-disabled="category.$invalid" ng-click="editIntShipping(obj)">Confirm</button>
+		</div>
+	</div>
+</form>

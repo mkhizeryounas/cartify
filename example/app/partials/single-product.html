@@ -1,0 +1,21 @@
+<div  class="container" ng-init="singleProduct()">
+<div class="col-md-8 col-md-offset-2">
+	<h2>{{product.name}}</h2>
+	<div class="col-md-6">
+		<div class="back-img img-thumbnail" style="background-image: url({{product.images[0]}})"></div>
+		<div class="back-img img-thumbnail" ng-repeat="p in product.images" style="background-image: url({{p}}); width:60px; height:60px!important;"></div>
+	</div>
+	<div class="col-md-6">
+		<h3>Description</h3>
+		<p id="dec"></p>
+		<hr>
+		<h4>Price</h4>
+		<b ng-if="product.discount" style="text-decoration: line-through">{{product.compare_price|currency}}</b> <b>{{product.price|currency}}</b>
+		<hr>
+		<button class="btn btn-default" ng-click="addToCart(product.id)" ng-if="product.track_inventory==false || product.quantity>0">Add to cart</button>
+		<span ng-if="product.track_inventory==true && product.quantity<=0" class="label label-danger">Out of stock</span>
+	</div>
+
+</div>
+</div>
+

@@ -1,0 +1,52 @@
+table > thead > tr > th, td
+{
+	text-align:center;
+	vertical-align: middle;
+	//border-bottom: 1px solid #eee;
+}
+.qty
+{
+	border:0;
+	text-align:center; 
+	width:35px;
+}
+
+@media print
+{
+	#print{
+		width: 225px;
+		display: inline;
+		left:0;
+		top:0;
+		overflow: none;
+		font-size: 10px;
+		position: absolute;
+	}
+	#print > table > thead > tr > th, td
+	{
+		text-align:left;
+	}
+	.sticky-left-side, #page-wrapper, .header-section, #main-sec, footer
+	{
+		display:none;
+	}
+}
+.force-close a
+{
+	font-color: #F44336 !important;
+}
+
+.panel-body >.nav > li > a > i
+{
+	padding: 0px 35px;
+}
+
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(../images/load.gif) center no-repeat #fff;
+}

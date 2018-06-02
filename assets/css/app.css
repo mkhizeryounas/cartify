@@ -1,0 +1,149 @@
+.back-img {
+  background-position: center center; 
+  background-repeat: no-repeat; 
+  background-size: contain;
+}
+trix-toolbar .button_group {
+          border-color: #d6d6d6;
+          border-radius: 2px;
+          box-shadow: none;
+          margin-bottom: 0;
+          margin-right: 2px;
+          margin-top: 5px;
+          margin-bottom: -2px;
+      }
+      trix-editor {
+          border-color: #d6d6d6;
+          border-radius: 0 0 3px 3px;
+          word-wrap: break-word;
+          color: #333;
+          min-height: 150px;
+      }
+      trix-toolbar .button_group button {
+          border-bottom: 0 none;
+          cursor: pointer;
+          opacity: 0.75;
+          transition: opacity 0.2s ease 0s;
+      }
+      trix-toolbar .button_group button.active,
+      trix-toolbar .button_group button.active:hover {
+          background-color: rgba(0, 0, 0, 0.03);
+          box-shadow: 0 0 4px -1px rgba(0, 0, 0, 0.2) inset !important;
+          opacity: 1;
+      }
+      trix-toolbar .button_group button:hover {
+          box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.1) inset !important;
+          opacity: 1;
+      }
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+    visibility: hidden; /* Hidden by default. Visible on click */
+    min-width: 250px; /* Set a default minimum width */
+    margin-left: -125px; /* Divide value of min-width by 2 */
+    background-color: #333; /* Black background color */
+    color: #fff; /* White text color */
+    text-align: center; /* Centered text */
+    border-radius: 2px; /* Rounded borders */
+    padding: 16px; /* Padding */
+    position: fixed; /* Sit on top of the screen */
+    z-index: 1; /* Add a z-index if needed */
+    left: 50%; /* Center the snackbar */
+    bottom: 30px; /* 30px from the bottom */
+}
+#snackbar .danger {
+	background-color:  #ff4d4d !important; 
+	color:#fff !important;
+}
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+    visibility: visible; /* Show the snackbar */
+
+/* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
+However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+
+
+button, .btn, a {
+	border-radius: 2px !important;
+}
+.cc:hover , .cc:active , .cc:focus, .clink, .clink:active {
+	text-decoration: none !important;
+}
+.fsmall {
+	font-size: 12px;
+}
+#custom tr {
+	border-bottom: 1px solid #eee;
+}
+#custom  {
+	border-right: 6px solid #eee;
+}
+.header1 {
+	padding: 0px;
+	font-size: 25px;
+	font-weight: bold;
+	color: #333;
+	border-bottom: 2px solid #eee;
+	border-top: 6px solid #eee;
+	padding-left: 10px;
+}
+.cdiv {
+	border-bottom: 2px solid #eee;
+	padding-bottom: 10px;
+	margin-top: 10px;
+}
+.linfo {
+	color: #EF6F08;
+}
+
+#app-content {
+    //box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.activex{
+  color: #999;
+  font-size:14px;
+  border-left: 5px solid #2f4050 !important;
+  //box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.1), 0 0px 25px 0 rgba(0, 0, 0, 0.19);
+}
+
+@media print {
+	nav {
+		display: none;
+	}
+	.noprint {
+		display: none;
+	}
+}
+
+#wait,#error,#success {
+	position: fixed;
+	right: 35px;
+	bottom: 15px;
+	z-index: 999;
+	display: none;
+}

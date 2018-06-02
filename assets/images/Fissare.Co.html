@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<!-- saved from url=(0021)http://localhost/pos/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Fissare.Co</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="keywords" content="">
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+ <!-- Bootstrap Core CSS -->
+<link href="./Fissare.Co_files/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="./Fissare.Co_files/app.css" rel="stylesheet" type="text/css">
+<link href="./Fissare.Co_files/bootstrap-select.min.css" rel="stylesheet" type="text/css">
+<!-- Custom CSS -->
+<link href="./Fissare.Co_files/style.css" rel="stylesheet" type="text/css">
+<link href="./Fissare.Co_files/prettify.css" rel="stylesheet">
+<link href="./Fissare.Co_files/font-awesome.css" rel="stylesheet">
+
+<!-- Graph CSS -->
+<link href="./Fissare.Co_files/font-awesome(1).css" rel="stylesheet"> 
+<!-- jQuery -->
+<!-- lined-icons -->
+<link rel="stylesheet" href="./Fissare.Co_files/icon-font.min.css" type="text/css">
+<link rel="stylesheet" href="./Fissare.Co_files/bootstrap-switch.css" type="text/css">
+<!-- //lined-icons -->
+<!-- chart -->
+<script src="./Fissare.Co_files/Chart.js.download"></script>
+<!-- //chart -->
+<!--animate-->
+<link href="./Fissare.Co_files/animate.css" rel="stylesheet" type="text/css" media="all">
+<script src="./Fissare.Co_files/wow.min.js.download"></script>
+	<script>
+		 new WOW().init();
+	</script>
+<!--script src="https://use.fontawesome.com/24c0c63400.js"></script-->
+
+<!--//end-animate-->
+<!----webfonts--->
+<link href="./Fissare.Co_files/css" rel="stylesheet" type="text/css">
+<!---//webfonts---> 
+ <!-- Meters graphs -->
+<script src="./Fissare.Co_files/jquery-1.10.2.min.js.download"></script>
+<script src="./Fissare.Co_files/bootstrap-select.min.js.download"></script>
+<script src="./Fissare.Co_files/bootstrap-switch.js.download"></script>
+<script src="./Fissare.Co_files/jquery_browser.js.download"></script>
+<script src="./Fissare.Co_files/md5.js.download"></script>
+<!-- Placed js at the end of the document so the pages load faster -->
+<script type="text/javascript">
+
+</script>
+<link href="./Fissare.Co_files/css(1)" rel="stylesheet">
+
+</head> 
+   
+ <!--body class="sticky-header left-side-collapsed"-->
+ <body class="sticky-header">
+
+<div class="se-pre-con" style="display: none;"></div>
+<script language="javascript">
+	$(window).load(function() {
+		
+		if(document.cookie[0]=="c")
+			$('body').addClass('left-side-collapsed');
+		else
+			$('body').removeClass('left-side-collapsed');
+
+		// Animate loader off screen
+		$(".se-pre-con").fadeOut("slow");;
+	});
+</script>
+
+	 <!-- RECIPT -->
+	<div id="print" style="display:none; text-align: center">
+			<h3>DelishPK</h3>
+			<h4>Receipt / Tax Invoice <span id="pin-return"></span></h4>
+			<p><b>Recipt No:</b> <span id="pin-no"></span></p>
+			<p><b>Date / Time:</b> <span id="pin-date"></span></p>
+			<p><b>Sales Person:</b> <span id="pin-sales"></span>Khizer Younas</p>
+			<table class="table table-hover table-bordered">
+				<thead>
+					<tr>
+						<th>QTY</th>
+						<th>Name</th>
+						<th>Per Unit Price</th>
+						<th>Price</th>
+					</tr>
+				</thead>
+				<tbody id="pin-table">
+					
+				</tbody>
+			</table>
+			<hr>
+			<div style="text-align:left">
+				<b>Sub-Total: </b><span id="pin-sub" class="pull-right">0.00</span><br>
+				<b>Tax: </b><span id="pin-tax" class="pull-right">0.00</span><br>
+				<b>Total Payable: </b><span id="pin-pay" class="pull-right">0.00</span><br>
+				<!--b>Payed: </b><span id="pin-payed" class="pull-right">0.00</span><br>
+				<b>Change: </b><span id="pin-change" class="pull-right">0.00</span><br-->
+				<hr>
+				<center><img id="pin-bar" src="http://localhost/pos/"></center>
+				<hr>
+				<b>Powerd by: www.fissare.co</b>
+			</div>
+		</div>
+		<!-- END RECIPT -->
+		
+    <section>
+    <!-- left side start-->
+		<div class="left-side sticky-left-side">
+
+			<!--logo and iconic logo start-->
+			<div class="logo">
+				<h1 style="font-family: &#39;Righteous&#39;, cursive;"><a href="http://localhost/pos/">fissare<span></span></a><b style="font-size:10px; color: #fff;"> &nbsp;<i class="fa fa-cogs fa-spin"></i> BETA</b></h1>
+			</div>
+			<div class="logo-icon text-center">
+				<a href="http://localhost/pos/"><i class="fa fa-home"></i> </a>
+			</div>
+
+			<!--logo and iconic logo end-->
+			<div class="left-side-inner">
+
+				<!--sidebar nav start-->
+					<ul class="nav nav-pills nav-stacked custom-nav">
+						<li id="home-nav" class="active"><a href="http://localhost/pos/"><i class="fa fa-dashboard"></i><span>Dashboard</span></a></li>
+						<li id="register-nav" class="menu-list"><a href="http://localhost/pos/#"><i class="fa fa-laptop"></i><span>Sale</span></a>
+							<ul class="sub-menu-list">
+								<li class="parked-sub-nav"><a href="http://localhost/pos/register.php"><i class="fa fa-book"></i> Register</a> </li>
+								<li class="parked-sub-nav"><a href="http://localhost/pos/parked_sales.php"><i class="fa fa-pause"></i> Held Sales</a> </li>
+								<li class="parked-sub-nav"><a href="http://localhost/pos/all_sales.php"><i class="fa fa-history"></i> All Sales</a> </li>
+							</ul>
+						</li>
+						<li id="stock-nav" class="menu-list"><a href="http://localhost/pos/#"><i class="fa fa-cubes"></i><span>Stock Control</span></a>
+							<ul class="sub-menu-list">
+								<li class="parked-sub-nav"><a href="http://localhost/pos/stock_control.php"><i class="fa fa-cube"></i> Purchase Order</a> </li>
+								<li class="parked-sub-nav"><a href="http://localhost/pos/return_init.php"><i class="fa fa-history"></i> Process Return</a> </li>
+							</ul>
+						</li>
+						<li id="supplier-nav"><a href="http://localhost/pos/supplier.php"><i class="fa fa-user"></i><span>Supplier</span></a></li>
+						<li id="category-nav"><a href="http://localhost/pos/category.php"><i class="fa fa-bookmark"></i><span>Category</span></a></li>
+						<li id="product-nav"><a href="http://localhost/pos/product.php"><i class="fa fa-tags"></i><span>Product</span></a></li>
+						<li id="ecommerce-nav" class="menu-list"><a href="http://localhost/pos/#"><i class="fa fa-shopping-cart"></i><span>Ecommerce</span></a>
+							<ul class="sub-menu-list">
+								<li><a href="http://localhost/pos/ecommerce_wizard.php"> <i class="fa fa-magic"></i> Wizard</a> </li>
+								<li><a href="http://localhost/pos/all_sales.php?ecommerce_pending=1"><i class="fa fa-history"></i> Pending Orders</a> </li>
+								<li><a href="http://localhost/pos/FISSARE_USER_SITE/" target="_blank"><i class="fa fa-external-link"></i> Visit Site</a> </li>
+							</ul>
+						</li>
+						<li id="user-nav"><a href="http://localhost/pos/users.php"><i class="fa fa-users"></i><span>Users</span></a></li> 
+						<li id="report-nav"><a href="http://localhost/pos/"><i class="fa fa-line-chart"></i><span>Reports</span></a></li>
+						<!--li class="menu-list act"><a href="#"><i class="lnr lnr-book"></i>  <span>Pages</span></a> 
+							<ul class="sub-menu-list">
+								<li><a href="sign-in.html">Sign In</a> </li>
+								<li><a href="sign-up.html">Sign Up</a></li>
+								<li><a href="blank_page.html">Blank Page</a></li>
+							</ul>
+						</li-->
+					</ul>
+				<!--sidebar nav end-->
+			</div>
+		</div>
+    <!-- left side end-->
+    
+    <!-- main content start-->
+		<div class="main-content main-content2 main-content2copy">
+			<!-- header-starts -->
+			<div class="header-section" style="">
+			 
+			<!--toggle button start-->
+			<a class="toggle-btn"><i class="fa fa-bars"></i></a>
+			<!--toggle button end-->
+
+			<!--notification menu start -->
+			<div class="menu-right">
+				<div class="user-panel-top">  	
+					<div class="profile_details_left">
+						
+					</div>
+					<div class="profile_details">		
+						<ul>
+							<li class="dropdown profile_details_drop">
+								<a href="http://localhost/pos/#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+									<div class="profile_img">	
+										 <img class="user-name" src="./Fissare.Co_files/logo.png" style="height: 40px; width: 40px; border-radius:360px;"> 
+										 <div class="user-name">
+											<p>DelishPK<span>Khizer Younas</span></p>
+										 </div>
+										 <i class="lnr lnr-chevron-down"></i>
+										 <i class="lnr lnr-chevron-up"></i>
+										<div class="clearfix"></div>	
+									</div>	
+								</a>
+								<ul class="dropdown-menu drp-mnu">
+									<li> <a href="http://localhost/pos/users.php"><i class="fa fa-users"></i> Users</a> </li>
+									<li> <a href="http://localhost/pos/api/logout.php"><i class="fa fa-sign-out"></i> Logout</a> </li>
+								</ul>
+							</li>
+							<div class="clearfix"> </div>
+						</ul>
+					</div>		
+					<div class="social_icons">
+						
+						
+						
+						<div class="clearfix"> </div>
+					</div>			             	
+					<div class="clearfix"></div>
+				</div>
+			</div>
+			<!--notification menu end -->
+			</div>
+			<div style="min-height: 90vh;">
+	<!-- //header-ends -->	<script type="text/javascript">
+		$("#home-nav").addClass("active");
+		//$("body").removeClass("left-side-collapsed");
+		
+	</script>
+		<div id="page-wrapper">
+		<div class="col-md-6" style="min-height: 300px;">
+			<div class="col-md-12">
+				<h3>Daily Sales</h3>
+				<canvas id="daily" height="450" width="1125" style="height: 100%; width: 100%;"></canvas>
+			</div>
+			<script>
+			var dailySaleArr = [227622.56000996, ];
+			var dalySalesLabel =['2016-09-08', ];
+				var lineChartData = {
+					labels : dalySalesLabel,
+					datasets : [
+						{
+							fillColor : "#fff",
+							strokeColor : "#F44336",
+							pointColor : "#fbfbfb",
+							pointStrokeColor : "#F44336",
+							data : dailySaleArr
+						}
+					]
+				};
+				new Chart(document.getElementById("daily").getContext("2d")).Line(lineChartData, { scaleFontColor: "#337ab7" });
+				$(document).ready(function(){
+					$('#daily').css('height', '100%');
+					$('#daily').css('width', '100%');
+				});
+			</script>
+		</div>
+
+		<div class="col-md-6" style="height: 300px">
+			<div class="col-md-12">
+				<h3>Sales History</h3>
+				<div class="col-md-4">
+					<div><span class="label label-danger"> Store </span></div>
+					<div><span class="label label-primary"> Ecommerce </span></div>
+				</div>
+				<div class="col-md-8">
+					<canvas id="history" class="pull-right" height="450" width="712" style="height: 100%; width: 100%;"></canvas>
+				</div>
+			</div>
+			<script>
+			var dailySaleArr = [227622.56000996, ];
+			var dalySalesLabel =['2016-09-08', ];
+				var pieData = [
+					{
+						value: 100,
+						color:"#d9534f"
+					},
+					{
+						value : 8.695652173913,
+						color : "#337ab7"
+					}			
+				];
+				new Chart(document.getElementById("history").getContext("2d")).Pie(pieData, { scaleFontColor: "#337ab7" });
+
+				$(document).ready(function(){
+					$('#history').css('height', '100%');
+					$('#history').css('width', '100%');
+				});
+			</script>
+		</div>
+
+
+		<div class="col-md-6" style="min-height: 300px">
+			<div class="col-md-12">
+				<h3>Most Sold Items</h3>
+				<canvas id="mostSale" height="300" width="900" style="width: 100%; height: 100%;"></canvas>
+			</div>
+			<script>
+				var barChartData = {
+					labels : ['Chocolate Fudge', 'Chocolate Malt', 'Special Eid Cake (Eid Mubarak)', 'Special Eid Cake (Delish Signature)', 'Vanilla'],
+					datasets : [
+						{
+							fillColor : "#8BC34A",
+							strokeColor : "#8BC34A",
+							data : [34, 26, 24, 23, 21]						}
+					]		
+				};
+				new Chart(document.getElementById("mostSale").getContext("2d")).Bar(barChartData, { scaleFontColor: "#337ab7" });
+
+				$(document).ready(function(){
+					$('#mostSale').css('height', '100%');
+					$('#mostSale').css('width', '100%');
+				});
+			</script>
+		</div>
+		<div class="col-md-6" style="height: 300px; overflow-y: auto">
+			<div class="col-md-12">
+				<h3>Reorder Product List</h3>
+				
+				<table class="table table-hover table-bordered">
+					<thead>
+						<tr>
+							<th>Product</th>
+							<th>Supplier</th>
+							<th>QTY</th>
+						</tr>
+					</thead>	
+					<tbody>
+						<tr>
+								<td>Chocolate Fudge</td>
+								<td>Bakery</td>
+								<td>-14</td>
+							</tr><tr>
+								<td>Chocolate Malt</td>
+								<td>Bakery</td>
+								<td>-15</td>
+							</tr><tr>
+								<td>Vanilla</td>
+								<td>Bakery</td>
+								<td>-11</td>
+							</tr><tr>
+								<td>Chocolate Fudge Cake</td>
+								<td>Bakery</td>
+								<td>-9</td>
+							</tr><tr>
+								<td>Coffee Cake</td>
+								<td>Bakery</td>
+								<td>-10</td>
+							</tr><tr>
+								<td>Special Eid Cake (Eid Mubarak)</td>
+								<td>Bakery</td>
+								<td>-14</td>
+							</tr><tr>
+								<td>Special Eid Cake (Delish Signature)</td>
+								<td>Bakery</td>
+								<td>-13</td>
+							</tr><tr>
+								<td>Chicken Mushroom Quiche</td>
+								<td>Bakery</td>
+								<td>-10</td>
+							</tr><tr>
+								<td>Cappuccino Brownie</td>
+								<td>Bakery</td>
+								<td>-4</td>
+							</tr><tr>
+								<td>Vanilla Cupcake</td>
+								<td>Bakery</td>
+								<td>-6</td>
+							</tr><tr>
+								<td>Oreo Cheese Cupcake</td>
+								<td>Bakery</td>
+								<td>-5</td>
+							</tr><tr>
+								<td>Flower Cupcake</td>
+								<td>Bakery</td>
+								<td>-9</td>
+							</tr><tr>
+								<td>Chocolate Fudge Cupcake</td>
+								<td>Bakery</td>
+								<td>-7</td>
+							</tr><tr>
+								<td>Double Chocolatechip</td>
+								<td>Bakery</td>
+								<td>-1</td>
+							</tr><tr>
+								<td>Chocolatechip</td>
+								<td>Bakery</td>
+								<td>2</td>
+							</tr><tr>
+								<td>Chocolate Carelel &amp; Peanut Buttor </td>
+								<td>Bakery</td>
+								<td>0</td>
+							</tr><tr>
+								<td>Chocolate &amp; Lemon Mecarons</td>
+								<td>Bakery</td>
+								<td>4</td>
+							</tr><tr>
+								<td>Tiramisu</td>
+								<td>Bakery</td>
+								<td>0</td>
+							</tr>					</tbody>
+				</table>
+
+			</div>
+		</div>
+	</div>
+<!--footer section start-->
+	</div>
+	<div class="clearfix"></div>
+			<footer>
+			   <p>©  Pagecabinet POS Panel. All Rights Reserved | Powered by <a href="https://pagecabinet.com/" target="_blank">Pagecabinet</a></p>
+			</footer>
+        <!--footer section end-->
+	</div></section>
+	
+<script src="./Fissare.Co_files/jquery.nicescroll.js.download"></script>
+<script src="./Fissare.Co_files/scripts.js.download"></script>
+<!-- Bootstrap Core JavaScript -->
+   <script src="./Fissare.Co_files/bootstrap.min.js.download"></script>
+
+</body></html>

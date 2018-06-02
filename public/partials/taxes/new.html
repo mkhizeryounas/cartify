@@ -1,0 +1,27 @@
+<div class="col-md-6" ng-init="startNewTax()">
+	<h2>New Tax</h2>
+</div>
+<div class="col-md-6">
+	
+</div>
+<div class="clearfix"></div><hr>
+<form name="tax">
+	<div class="form-group col-md-6">
+		<label>Country</label>
+		<select class="form-control" ng-model="obj.country" name="country" required>
+			<option ng-repeat="c in countries" ng-value="c.id">{{c.name}}</option>
+		</select>
+	</div>
+	<div class="form-group col-md-6">
+		<label>Tax percentage</label>
+		<input type="number" name="category_name" name="percent" placeholder="Percentage" class="form-control" ng-model="obj.percent" required>
+	</div>
+	<div class="clearfix"></div><hr>
+	<div class="col-md-12">
+		<div class="pull-right">
+			<button type="button" class="btn btn-danger" ui-sref="taxes">Cancel</button>
+			<button type="submit" class="btn btn-success" ng-disabled="tax.$invalid" ng-click="addTax(obj)">Confirm</button>
+		</div>
+	</div>
+</form>
+<div class="loader"></div>

@@ -1,0 +1,7 @@
+<div  class="container" ng-init="allCollections()">
+	<h2>All Collections</h2>
+	<div class="col-md-3 text-center" ng-repeat="p in collections">
+		<a href="javascript:void(0)" ui-sref="single_collection({c_id:p.id, c_slug:p.slug})"><h4>{{p.name}}</h4></a>
+	</div>
+</div>
+

@@ -1,0 +1,60 @@
+<div class="col-md-6" ng-init="startCollectionForm()">
+	<h2>New Collection</h2>
+</div>
+<div class="col-md-6">
+	
+</div>
+<div class="clearfix"></div><hr>
+<form name="collection">
+	<div class="form-group col-md-12">
+		<label>Collection Name</label>
+		<input type="text" name="collection" placeholder="Collection name" class="form-control" ng-model="obj.name" required>
+	</div>
+	<div class="clearfix"></div><hr>
+	<div class="form-group col-md-6">
+		<h4>Publish collection?</h4>
+		<p>This is when you want to make your collections unavailable on your site</p>
+	</div>
+	<div class="form-group col-md-6">
+		<label>Publish this collection</label><br>
+	    <switch ng-model="obj.publish" class="green"></switch>
+	</div>
+	<div class="clearfix"></div><hr>
+	<div>
+		<h4 class="col-md-12">Add products to collection</h4>
+		<div class="clearfix"></div><br>
+		<div class="col-md-6 form-group">
+			<label>Search products</label>
+			<!-- <input type="text" class="form-control" placeholder="Search products"> -->
+			<input type="text" class="form-control" id="productInput" style="" ng-model="order.selected" data-min-length="1" bs-options="product as product.name || product.sku for product in products | filter:$viewValue" placeholder="Search Product" data-auto-select="true" bs-typeahead data-html="1"  bs-on-select="select" autocomplete="off">
+		</div>
+		<!-- <div class="col-md-2 form-group">
+			<label>&nbsp;</label>
+			<button type="button" class="btn btn-default form-control">Add</button>
+		</div> -->
+		<div class="clearfix"></div>
+		<table class="table table-hover table-stripped">
+			<thead>
+				<tr>
+					<th class="col-md-7">Name</th>
+					<th class="col-md-3">Published</th>
+					<th class="col-md-2">Remove</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="(k, v) in obj.products track by $index">
+					<td>{{v.name}}</td>
+					<td><label class="label label-default" ng-class="{'label-success':v.publish==true}" style="text-transform: uppercase">{{v.publish}}</label></td>
+					<td><button type="button" class="btn btn-default" ng-click="deleteProduct(k)"><i class="fa fa-trash text-danger"></i></button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div class="clearfix"></div><hr>
+	<div class="col-md-12">
+		<div class="pull-right">
+			<button type="button" class="btn btn-danger" ui-sref="collections">Cancel</button>
+			<button type="submit" class="btn btn-success" ng-disabled="collection.$invalid" ng-click="addCollection(obj)">Confirm</button>
+		</div>
+	</div>
+</form>

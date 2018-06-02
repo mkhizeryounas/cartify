@@ -1,0 +1,45 @@
+<div class="col-md-6" ng-init="getAll()">
+	<h2>Shippings</h2>
+</div>
+<div class="col-md-6">
+	<!-- <button class="btn btn-success pull-right" ui-sref="new_shipping">
+		New Shipping Country
+	</button> -->
+</div>
+<div class="clearfix"></div><hr>
+<div style="overflow-x: auto">
+	<h4 class="col-md-6">Rest of the world</h4>
+	<div class="col-md-6">
+		<a href="javascript:void(0)" class="pull-right" ui-sref="int_shipping">Edit</a>
+	</div>
+	<div class="clearfix"></div>
+	<div class="col-md-12">
+		<p ng-show="shipping.international.status">{{shipping.international.shipping_first | currency}} for first item + {{shipping.international.shipping_each | currency}} for each additional item</p>
+		<p ng-hide="shipping.international.status">Not allowed</p>
+	</div>
+</div>
+<!-- <div class="clearfix"></div><hr>
+<div style="overflow-x: auto">
+	<h4 class="col-md-6">Country Overrides</h4>
+	<div class="col-md-6">
+		<a href="javascript:void(0)" class="pull-right">Add country</a>
+	</div>
+	<table class="table table-hover table-stripped">
+		<thead>
+			<tr>
+				<th>Country</th>
+				<th>Details</th>
+				<th>Edit</th>
+				<th>Delete</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="(k, v) in countries track by $index">
+				<td>{{v.name}}</td>
+				<td>{{v.details}}</td>
+				<td><button class="btn btn-default" ui-sref="edit_shipping({s_id: v.id})"><i class="fa fa-pencil"></i></button></td>
+				<td><button class="btn btn-default" ui-sref="delete_shipping({s_id: v.id})"><i class="fa fa-trash"></i></button></td>
+			</tr>
+		</tbody>
+	</table>
+</div> -->
