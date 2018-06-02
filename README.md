@@ -1,2 +1,2 @@
-# Cartify - [DEMO](http://cartify.shopdesk.co/) 
-Multi-tannancy ecommerce backend API 
+# Cartify
+An open source Multi-tannancy ecommerce backend API - [DEMO](http://cartify.shopdesk.co/) 
