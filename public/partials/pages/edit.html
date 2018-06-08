@@ -1,5 +1,5 @@
-<div class="col-md-6" ng-init="startNewPage()">
-	<h2>New Page</h2>
+<div class="col-md-6" ng-init="startEditPage()">
+	<h2>Edit Page</h2>
 </div>
 <div class="col-md-6">
 	
@@ -8,11 +8,11 @@
 <form name="tax">
 	<div class="form-group col-md-12">
 		<label>Page name</label>
-		<input type="text" name="page_name" placeholder="Page name" class="form-control" ng-model="obj.page_name" required>
+		<input type="text" name="page_name" placeholder="Page name" class="form-control" ng-model="obj.description" required>
     </div>
     <div class="form-group col-md-12">
 		<label>Body</label>
-		<text-angular ng-model="obj.page_content"></text-angular>
+		<text-angular ng-model="obj.content"></text-angular>
 	</div>
 	<div class="col-md-12 form-group">
 		<label>Host images</label>
@@ -41,7 +41,7 @@
 	<div class="col-md-12">
 		<div class="pull-right">
 			<button type="button" class="btn btn-danger" ui-sref="pages">Cancel</button>
-			<button type="submit" class="btn btn-success" ng-disabled="tax.$invalid" ng-click="addPage(obj)">Confirm</button>
+			<button type="submit" class="btn btn-success" ng-disabled="tax.$invalid" ng-click="editPage(obj)">Confirm</button>
 		</div>
 	</div>
 </form>

@@ -259,6 +259,14 @@ app.config(function($stateProvider,$urlRouterProvider) {
       authLevel: "admin"
     }
   })
+  .state('edit_page', {
+    templateUrl: base_url+'public/partials/pages/edit.html',
+    url: '/pages/:p_id/edit',
+    controller: "pagesCtrl",
+    data : {
+      authLevel: "admin"
+    }
+  })
 
 
 
