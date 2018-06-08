@@ -1,0 +1,20 @@
+{
+  "name": "cartify",
+  "homepage": "https://github.com/mkhizeryounas/cartify",
+  "authors": [
+    "mkhizeryounas <m.khizeryounas@gmail.com>"
+  ],
+  "description": "",
+  "main": "index.php",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "textAngular": "^1.5.16"
+  }
+}

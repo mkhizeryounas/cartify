@@ -37,11 +37,16 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/libs/loader/loader.css">
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/libs/angular-switch/style.css">
 <link href="<?php echo base_url(); ?>public/libs/angular-strap/libs.min.css" rel='stylesheet' type='text/css' />
+<link rel='stylesheet' href='<?php echo base_url(); ?>/bower_components/textAngular/dist/textAngular.css'>
+
 <script type="text/javascript">
     var base_url = '<?php echo base_url(); ?>';
 </script>
 
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/trix/0.9.2/trix.css">
+
+
+
 <link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>public/libs/pikaday/pikaday.css">
 
 <link href="<?php echo base_url(); ?>assets/css/app.css" rel='stylesheet' type='text/css' />
@@ -124,6 +129,9 @@
                         <a href="javascript:void(0)" ui-sref="taxes" class=" hvr-bounce-to-right nav-link" ng-class="{activex: $state.includes('taxes')}" id="nav-dashboard"><i class="fa fa-bank nav_icon "></i><span class="nav-label">Taxes</span> </a>
                     </li>
                     <li>
+                        <a href="javascript:void(0)" ui-sref="pages" class=" hvr-bounce-to-right nav-link" ng-class="{activex: $state.includes('pages')}" id="nav-dashboard"><i class="fa fa-text-width nav_icon "></i><span class="nav-label">Pages</span> </a>
+                    </li>
+                    <li>
                         <a href="javascript:void(0)" ui-sref="shippings" class=" hvr-bounce-to-right nav-link" ng-class="{activex: $state.includes('shippings')}" id="nav-dashboard"><i class="fa fa-ship nav_icon "></i><span class="nav-label">Shippings</span> </a>
                     </li>
                     <li>
@@ -183,7 +191,9 @@
 <script src="<?php echo base_url(); ?>public/libs/angular-strap/angular-strap.docs.tpl.js"></script>
 <script src="<?php echo base_url(); ?>public/libs/voucher_codes.js"></script>
 <script src="<?php echo base_url(); ?>public/libs/pikaday/pikaday.js"></script>
-
+<script src='<?php echo base_url(); ?>/bower_components/textAngular/dist/textAngular-rangy.min.js'></script>
+<script src='<?php echo base_url(); ?>/bower_components/textAngular/dist/textAngular-sanitize.min.js'></script>
+<script src='<?php echo base_url(); ?>/bower_components/textAngular/dist/textAngular.min.js'></script>
 
 <script src="<?php echo base_url(); ?>public/app.js"></script>
 <script src="<?php echo base_url(); ?>public/routes.js"></script>
@@ -197,6 +207,7 @@
 <script src="<?php echo base_url(); ?>public/controllers/shippings.controller.js"></script>
 <script src="<?php echo base_url(); ?>public/controllers/orders.controller.js"></script>
 <script src="<?php echo base_url(); ?>public/controllers/customers.controller.js"></script>
+<script src="<?php echo base_url(); ?>public/controllers/pages.controller.js"></script>
 
 </body>
 </html>

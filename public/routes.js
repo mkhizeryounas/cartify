@@ -243,6 +243,22 @@ app.config(function($stateProvider,$urlRouterProvider) {
       authLevel: "admin"
     }
   })
+  .state('pages', {
+    templateUrl: base_url+'public/partials/pages/pages.html',
+    url: '/pages',
+    controller: "pagesCtrl",
+    data : {
+      authLevel: "admin"
+    }
+  })
+  .state('new_page', {
+    templateUrl: base_url+'public/partials/pages/new.html',
+    url: '/pages/new',
+    controller: "pagesCtrl",
+    data : {
+      authLevel: "admin"
+    }
+  })
 
 
 
