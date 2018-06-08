@@ -1,4 +1,3 @@
 files/*
 .htaccess
-application/config/database.php
 ./bower_components/*
