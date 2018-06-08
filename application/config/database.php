@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'db690811217.db.1and1.com',
-	'username' => 'dbo690811217',
-	'password' => 'Mkhizer#321',
-	'database' => 'db690811217',
+	'hostname' => 'localhost:8889',
+	'username' => 'root',
+	'password' => 'root',
+	'database' => 'cartify',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
