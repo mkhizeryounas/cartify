@@ -1,7 +1,7 @@
 var Cartify = function(pk=null) {
 	if(pk==null) return false;
-	var base_url = "http://cartify.shopdesk.co/";
-	// var base_url = "http://localhost:8888/cartify/";
+	// var base_url = "http://cartify.shopdesk.co/";
+	var base_url = "http://localhost:8888/cartify/";
 	var data = {};
 	var public_key = pk;
 	var token = {"Public-Key" : public_key};

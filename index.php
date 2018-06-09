@@ -5,11 +5,10 @@ header("Access-Control-Allow-Headers: x-requested-with,authorization,content-typ
 header("Access-Control-Allow-Methods: POST, GET, PATCH, PUT, OPTIONS");
 if ( "OPTIONS" === $_SERVER['REQUEST_METHOD'] ) {
 	header('Content-Type: application/json');
-	echo json_encode([
+	die(json_encode([
 			'status'=>true,
 			'message'=>"CORS is active"
-	]);
-	die();
+	]));
 }
 
 /**
