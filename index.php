@@ -1,4 +1,17 @@
 <?php
+// CORS Allow
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: x-requested-with,authorization,content-type,optional-token");
+header("Access-Control-Allow-Methods: POST, GET, PATCH, PUT, OPTIONS");
+if ( "OPTIONS" === $_SERVER['REQUEST_METHOD'] ) {
+	header('Content-Type: application/json');
+	echo json_encode([
+			'status'=>true,
+			'message'=>"CORS is active"
+	]);
+	die();
+}
+
 /**
  * CodeIgniter
  *
