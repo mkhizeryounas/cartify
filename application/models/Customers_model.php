@@ -35,6 +35,16 @@ class Customers_model extends CI_Model {
 			return false;
 		}
 	}
+	public function login($params) {
+		$q = "SELECT c.customer_key id, c.customer_name name, c.customer_email email, c.customer_phone phone, c.customer_address address FROM customers c join stores s on c.store_id = s.store_id where c.customer_email = ? and c.customer_password = ? and s.store_key = ?";
+		$res = $this->db->query($q, $params)->row_array();
+		if($res) {
+			return $res;
+		}
+		else {
+			return false;
+		}
+	}
 	public function edit_customer($customer, $key) {
 		$k = 'SELECT `store_id` FROM `stores` WHERE store_key = ?';
 		$tmp = $this->db->query($k, array($key))->row_array();

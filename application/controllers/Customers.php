@@ -114,6 +114,26 @@ class Customers extends REST_Controller {
 			$this->set_response(array('status'=>false, 'message'=>'Authorization header missing'));
 		}
 	}
+	public function login_post() {
+		$public_key = token();
+		if($public_key) {
+			$cus = $this->input->post('customer');
+			$tmp = $this->customers_model->login(array($cus['email'], $cus['password'], $public_key));
+			if($tmp==false) {
+				$this->set_response(array('status'=>false, 'message'=>'Customer not found'));
+			}
+			else {
+				$this->set_response(array(
+					'status' => true,
+					'message' => 'Customer displayed',
+					'customer' => $tmp
+				));
+			}
+		} 
+		else {
+			$this->set_response(array('status'=>false, 'message'=>'Authorization header missing'));
+		}
+	}
 	public function delete_post() {
 		$customer = $this->input->post('customer');
 		$auth = authenticate();

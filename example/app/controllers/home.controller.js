@@ -39,7 +39,8 @@ app.controller('homeCtrl',function($scope, $rootScope, $stateParams) {
 			console.log(res);
 			$scope.getCart();
 			alert(res.message);
-			$scope.$apply();
+			// $scope.$apply();
+			if(!$scope.$$phase) $scope.$apply();
 		})
 	}
 	$scope.removeFromCart = function (id) {
@@ -47,15 +48,21 @@ app.controller('homeCtrl',function($scope, $rootScope, $stateParams) {
 			console.log(res);
 			$scope.getCart();
 			alert(res.message);
-			$scope.$apply();	
+			if(!$scope.$$phase) $scope.$apply();
+			// $scope.$apply();	
 		})
 	}
 	$scope.getCart = function() {
 		ecom.getCart().then(function(res) {
 			$scope.cart = res;
+			if(!$scope.$$phase) $scope.$apply();
 			console.log(res)
 		});
 	}
 	$scope.getCart();
-
+	$scope.checkout = () => {
+		ecom.checkout().then(res => {
+			console.log(res);
+		})
+	}
 });

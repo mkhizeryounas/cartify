@@ -1,7 +1,7 @@
 var Cartify = function(pk=null) {
 	if(pk==null) return false;
 	// var base_url = "http://cartify.shopdesk.co/";
-	var base_url = "http://localhost/cartify/";
+	var base_url = "http://localhost:8888/cartify/";
 	var data = {};
 	var public_key = pk;
 	var token = {"Public-Key" : public_key};
@@ -11,9 +11,29 @@ var Cartify = function(pk=null) {
 	  else 
 	    return false;
 	}
+	function guid() {
+		function s4() {
+		  return Math.floor((1 + Math.random()) * 0x10000)
+			.toString(16)
+			.substring(1);
+		}
+		return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+	}
 	data.cart = [];
+	var getCartId = () => {
+		let id = "";
+		if(!var_check(window.localStorage.getItem('cartify-cart_id'))) {
+			id = guid();
+			window.localStorage.setItem('cartify-cart_id', JSON.stringify(id));
+		}
+		else {
+			id = window.localStorage.getItem('cartify-cart_id');
+		}
+		return id;
+	}
 	var getCart = function() {
 		var cart = [];
+		getCartId();
 		if(!var_check(window.localStorage.getItem('cartify-cart'))) {
 			window.localStorage.setItem('cartify-cart', JSON.stringify(cart));
 		}
@@ -166,6 +186,47 @@ var Cartify = function(pk=null) {
 		};
 		var d=$.Deferred();
 		d.resolve(res);
+		return d;
+	}
+
+	// CUSTOMER ENDPOINTS
+	data.customer = Object();
+	data.customer.login = (email, password) => {
+		return $.ajax({
+			type:"post",
+			url: base_url+"customers/login",
+			headers: token,
+			data: {
+				email,
+				password
+			}
+		});
+	}
+
+	data.checkout = () => {
+		var d=$.Deferred();
+		var res = Object();
+		if(!data.cart.length>0) {
+			res = {
+				status : false,
+				message: "Cart is empty"
+			}
+			d.resolve(res);
+		}
+		else {
+			let products = Array();
+			data.cart.forEach(e => {
+				products.push({
+					id: e.id,
+					qty: e.qty
+				});
+			})
+			let data = {
+				cart_id : getCartId(),
+				products : products
+			}
+			d.resolve(data);
+		}
 		return d;
 	}
 	return data;
