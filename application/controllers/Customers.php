@@ -118,7 +118,7 @@ class Customers extends REST_Controller {
 		$public_key = token();
 		if($public_key) {
 			$cus = $this->input->post('customer');
-			$tmp = $this->customers_model->login(array($cus['email'], $cus['password'], $public_key));
+			$tmp = $this->customers_model->login(array($cus['email'], pwd($cus['password']), $public_key));
 			if($tmp==false) {
 				$this->set_response(array('status'=>false, 'message'=>'Customer not found'));
 			}
