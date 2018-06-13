@@ -12,10 +12,25 @@ function authenticate() {
 		return false;
 	}
 }
-function token() {	
+function token($full_object = false) {	
 	$headers = getallheaders();
     if (array_key_exists('Public-Key', $headers) && !empty($headers['Public-Key'])) {
-    	return $headers['Public-Key'];
+        $public_key = $headers['Public-Key'];
+        if($full_object) {
+            // Return full store object;
+            $ci =& get_instance();
+            $ci->load->database();
+            $store = $ci->db->query("SELECT `store_id`, `store_name`, `store_email`, `store_password`, `store_key`, `store_full_name`, `store_shipping_int`, `store_shipping_int_first`, `store_shipping_int_each` FROM `stores` WHERE store_key = ?", [$public_key])->row_array();
+            if(count($store) == 0) {
+                return false;
+            }
+            else {
+                return $store;
+            }
+        }
+        else {
+            return $public_key;
+        }
     }
     else {
     	return false;

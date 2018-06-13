@@ -11,6 +11,13 @@ if ( "OPTIONS" === $_SERVER['REQUEST_METHOD'] ) {
 	]));
 }
 
+if(isset($_SERVER["CONTENT_TYPE"]) && strtolower($_SERVER["CONTENT_TYPE"]) === "application/json") {
+	$_POST = json_decode(file_get_contents('php://input'), true);
+	$_GET = json_decode(file_get_contents('php://input'), true);
+	$_POST['x-shopdesk-id'] = uniqid();
+	$_GET['x-shopdesk-id'] = uniqid();
+}
+
 /**
  * CodeIgniter
  *
