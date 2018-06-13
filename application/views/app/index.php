@@ -178,6 +178,7 @@
 
 <!-- ANGULAR -->
 <script src="<?php echo base_url(); ?>public/libs/angular.js"></script>
+
 <script src="<?php echo base_url(); ?>public/libs/angular-ui-router.js"></script>
 <script src="<?php echo base_url(); ?>public/libs/ngStorage.js"></script>
 <script src="<?php echo base_url(); ?>public/libs/loader/loader.js"></script>
