@@ -12,7 +12,10 @@ class Orders extends REST_Controller {
 		try {
 			$public_key = token(true);
 			if(!$public_key) throw new Exception("Authorization header missing");
-			if(!$cart) throw new Exception("cart_id is required");
+			if(!$cart)  {
+				// throw new Exception("cart_id is required");
+				$cart = "cart_".uniqid();
+			}
 			$res = $this->orders_model->get_cart($cart, $public_key['store_id']);
 			if(!$res) {
 				$res = $this->orders_model->create_cart($cart, $public_key['store_id']);

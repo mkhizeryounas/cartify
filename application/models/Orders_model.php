@@ -11,7 +11,7 @@ class Orders_model extends CI_Model {
 	}
 	public function create_cart($cart, $order_id) {
 		$q = "INSERT INTO `orders`(`order_key`, `store_id`) VALUES (?,?)";
-		return $this->db->query($q, [$cart, $store_id]);	
+		return $this->db->query($q, [$cart, $order_id]);	
 	}
 	public function get_order_products($cart, $store_id) {
 		$q = "SELECT op.product_key id, p.product_name as name, product_sku sku, p.product_slug slud, op.op_qty qty, op.op_price original_price, op.op_sale_price sale_price, i.image_src FROM order_products op join orders o on op.order_key = o.order_key JOIN PRODUCTS p ON op.product_key = p.product_key join images i on p.product_key = i.product_key WHERE o.order_key = ? and o.store_id = ? group by id";
