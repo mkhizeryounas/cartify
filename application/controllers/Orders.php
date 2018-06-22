@@ -58,6 +58,7 @@ class Orders extends REST_Controller {
 	public function update_order_post($cartParam = null) {
 		$this->set_response($this->update_order($cartParam, true));
 	}
+	// Need to update it
 	function update_order($cartParam, $adminOrder = false) {
 		try {
 			$pk = token(true);
