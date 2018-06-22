@@ -53,10 +53,10 @@ class Orders extends REST_Controller {
 		}
 	}
 	public function cart_get($cart=null) {
-		$this->set_response($this->get_cart($cart, "Cart fetched"));
+		$this->set_response($this->get_cart($cart, "Cart fetched", false)); // not admin
 	}
 	public function update_order_post($cartParam = null) {
-		$this->set_response($this->update_order($cartParam, true));
+		$this->set_response($this->update_order($cartParam, true)); // is admin
 	}
 	// Need to update it
 	function update_order($cartParam, $adminOrder = false) {
