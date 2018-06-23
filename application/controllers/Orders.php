@@ -14,6 +14,8 @@ class Orders extends REST_Controller {
 			$token = $this->orders_model->get_token_by_cart($cart_id)['id'];
 			if(!$token) throw new Exception("Invalid cart_id");
 			$response['cart'] = $this->get_cart($cart_id, "Success", false, $token);
+			$this->load->database();
+			$response['countries'] = $this->db->query("SELECT * FROM countries WHERE 1")->result_array();
 		}
 		catch(Exception $e) {
 			$response = [

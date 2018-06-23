@@ -5,7 +5,8 @@
 <br>
 <div ng-app="cartify_customer" ng-controller="customer_controller">
     <script>
-        var cart_products = <?php echo json_encode($cart['data']['products']) ?>
+        var cart_products = <?php echo json_encode($cart['data']['products']) ?>;
+        var all_countries = <?php echo json_encode($countries) ?>
     </script>
     <div class=" container" style="background-color: #fff !important; border: 2px solid #eee; border-radius: 3px; padding-top: 10px; padding-bottom: 10px;">
         <!-- <h3 class="row col-md-12">Checkout</h3>
@@ -38,6 +39,7 @@
                 <div class="form-group col-sm-4">
                     <label for="">Country *</label>
                     <select name="" id="" class="form-control">
+                        <option ng-repeat="c in countries" value="{{c.country_code}}">{{c.country_name}}</option>
                     </select>
                 </div>
                 <div class="form-group col-sm-4">
@@ -106,7 +108,24 @@
                     </td>
                 </tr>
             </table>
-            <div class="clearfix"></div><hr/>
+            <div class="clearfix"></div><hr>
+            <div>
+                <div class="col-xs-6"><strong>Subtotal</strong></div>
+                <div class="col-xs-6"><span class="pull-right">{{cart.sub_total | currency}}</span></div>
+            </div>
+            <div>
+                <div class="col-xs-6"><strong>Shipping</strong></div>
+                <div class="col-xs-6"><span class="pull-right">{{cart.shipping | currency}}</span></div>
+            </div>
+            <div>
+                <div class="col-xs-6"><strong>Tax</strong></div>
+                <div class="col-xs-6"><span class="pull-right">{{cart.tax | currency}}</span></div>
+            </div>
+            <div>
+                <div class="col-xs-6"><strong>Order Total</strong></div>
+                <div class="col-xs-6"><span class="pull-right">{{cart.total | currency}}</span></div>
+            </div>
+            <div class="clearfix"></div><hr>
         </div>
         
     </div>
