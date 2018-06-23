@@ -8,9 +8,29 @@ class Orders extends REST_Controller {
 		parent::__construct();
 		$this->load->model('orders_model');
 	}
-	public function get_cart($cart=null, $successMsg="success", $admin=false) {
+	public function checkout_get($cart_id = null) {
+		$response=[];
 		try {
-			$public_key = token(true);
+			$token = $this->orders_model->get_token_by_cart($cart_id)['id'];
+			if(!$token) throw new Exception("Invalid cart_id");
+			$response['cart'] = $this->get_cart($cart_id, "Success", false, $token);
+		}
+		catch(Exception $e) {
+			$response = [
+				"status" => false,
+				"message" => $e->getMessage()
+			];
+		}
+		finally {
+			$response['title'] = "Cart";
+			// $this->set_response($response);
+			$this->load->view('auth/customers/checkout', $response);
+		}
+		
+	}
+	public function get_cart($cart=null, $successMsg="success", $admin=false, $token=null) {
+		try {
+			$public_key = token(true, $token);
 			if(!$public_key) throw new Exception("Authorization header missing");
 			if(!$cart)  {
 				// throw new Exception("cart_id is required");
@@ -41,6 +61,8 @@ class Orders extends REST_Controller {
 			// 	array_push($tmpProducts, $product);
 			// }
 			$response['data']['products'] = $tmp?$tmp : [];
+			$this->load->model("auth_model");
+			$response['data']['store'] = $this->auth_model->get_store_by_key($public_key['store_id']);
 		}
 		catch (Exception $e) {
 			$response = [
@@ -53,10 +75,10 @@ class Orders extends REST_Controller {
 		}
 	}
 	public function cart_get($cart=null) {
-		$this->set_response($this->get_cart($cart, "Cart fetched", false)); // not admin
+		$this->set_response($this->get_cart($cart, "Cart fetched", false)); // false for not admin
 	}
 	public function update_order_post($cartParam = null) {
-		$this->set_response($this->update_order($cartParam, true)); // is admin
+		$this->set_response($this->update_order($cartParam, false)); // false for not admin
 	}
 	// Need to update it
 	function update_order($cartParam, $adminOrder = false) {

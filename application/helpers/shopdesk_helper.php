@@ -12,10 +12,10 @@ function authenticate() {
 		return false;
 	}
 }
-function token($full_object = false) {	
+function token($full_object = false, $passed_token = null) {	
 	$headers = getallheaders();
-    if (array_key_exists('Public-Key', $headers) && !empty($headers['Public-Key'])) {
-        $public_key = $headers['Public-Key'];
+    if ((array_key_exists('Public-Key', $headers) && !empty($headers['Public-Key'])) || $passed_token != null) {
+        $public_key = isset($headers['Public-Key']) ? $headers['Public-Key'] : $passed_token;
         if($full_object) {
             // Return full store object;
             $ci =& get_instance();

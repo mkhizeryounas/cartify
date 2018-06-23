@@ -1,4 +1,8 @@
 <?php include 'includes/header.php' ?>
+<h1><a href="./">cartify </a></h1>
+<script type="text/javascript">
+	window.localStorage.removeItem('ngStorage-public_key');
+</script>
 		<div class="login-bottom">
 			<h2>Sign up for cartify</h2>
 			<?php echo form_open(uri_string()); ?>

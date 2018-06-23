@@ -17,4 +17,8 @@ class Auth_model extends CI_Model {
 		$q = 'select * from stores where store_email =? and store_password=?';
 		return $this->db->query($q, array($email, pwd($pass)))->row_array();
 	}
+	public function get_store_by_key($id) {
+		return $this->db->query("SELECT store_name, store_email, store_key id FROM `stores` WHERE store_id = ?", [$id])->row_array();
+	} 
+	
 }
