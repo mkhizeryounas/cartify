@@ -9,6 +9,7 @@ class Orders extends REST_Controller {
 		$this->load->model('orders_model');
 	}
 	public function checkout_get($cart_id = null) {
+		
 		$response=[];
 		try {
 			$token = $this->orders_model->get_token_by_cart($cart_id)['id'];
@@ -22,12 +23,12 @@ class Orders extends REST_Controller {
 				"status" => false,
 				"message" => $e->getMessage()
 			];
+			$this->set_response($response);
+			return;
 		}
-		finally {
-			$response['title'] = "Cart";
-			// $this->set_response($response);
-			$this->load->view('auth/customers/checkout', $response);
-		}
+		$response['title'] = "Cart";
+		$this->set_response($response);
+		// $this->load->view('auth/customers/checkout', $response);
 		
 	}
 	public function get_cart($cart=null, $successMsg="success", $admin=false, $token=null) {
