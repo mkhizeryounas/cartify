@@ -8,3 +8,5 @@ An open source Multi-tannancy ecommerce backend API
 
 ### Documentation
 [Docs](https://documenter.getpostman.com/view/225012/RWEcNfPA#intro)
+
+## Technologies
