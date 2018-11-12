@@ -1,4 +1,4 @@
-# Cartify
+# Cartify API
 An open source Multi-tannancy ecommerce backend API 
 
 ### Examples
